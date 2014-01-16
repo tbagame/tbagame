@@ -1,0 +1,4 @@
+<div class="h_a"><%= @user.nickname %>新增用户账号</div>
+<form id="form" action="/manage/users/<%=@user.id%>/accounts" method="post">
+    <%= render :partial => 'manage/accounts/form' %>
+</form>

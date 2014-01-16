@@ -1,0 +1,51 @@
+<div class="table_full">
+  <table width="100%">
+    <col class="th"/>
+    <col width="400"/>
+    <col/>
+    <tr>
+      <th>队名</th>
+      <td>
+        <input type="text" name="name" class="input length_5 input_hd required" value="<%= @team.name %>"/>
+      </td>
+      <td>
+        <div class="fun_tips"></div>
+      </td>
+    </tr>
+    <tr>
+      <th>实力</th>
+      <td>
+        <input type="text" name="power" class="input length_5 required" value="<%= @team.power %>"/>
+      </td>
+      <td>
+        <div class="fun_tips"></div>
+      </td>
+    </tr>
+    <tr>
+      <th>级别</th>
+      <td>
+        <input type="text" name="level" class="input length_5 " value="<%= @team.level %>"/>
+      </td>
+      <td>
+        <div class="fun_tips"></div>
+      </td>
+    </tr>
+    <tr>
+      <th>状态</th>
+      <td>
+        <select name="status">
+          <%= options_for_select(status_list, @team[:status]) %>
+        </select>
+      </td>
+      <td>
+        <div class="fun_tips"></div>
+      </td>
+    </tr>
+  </table>
+</div>
+<div class="p10"></div>
+<div class="cc">
+  <div class="btn_wrap_pd">
+    <button class="btn btn_submit" type="submit">保存</button>
+  </div>
+</div>

@@ -1,0 +1,4 @@
+<div class="h_a">新增站内消息</div>
+<%= form_tag '/manage/messages', method: 'post' do %>
+    <%= render :partial => 'manage/messages/form' %>
+<% end %>

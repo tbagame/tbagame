@@ -1,0 +1,48 @@
+<div class="search_type cc mb10">
+  <div class="h_a">球队列表</div>
+</div>
+
+<div class="table_list">
+  <table width="100%">
+    <colgroup>
+      <col/>
+      <col/>
+      <col/>
+      <col/>
+    </colgroup>
+    <thead>
+    <tr>
+      <td>ID</td>
+      <td>队名</td>
+      <td>实力</td>
+      <td>地区</td>
+      <td>区域</td>
+      <td>等级</td>
+      <td>状态</td>
+      <td>操作</td>
+    </tr>
+    </thead>
+    <% @teams.each do |team| %>
+        <tr>
+          <td><%= team.id %></td>
+          <td><%= team.name %></td>
+          <td><%= team.power %></td>
+          <td><%= team.area %></td>
+          <td><%= team.region %></td>
+          <td><%= team.level %></td>
+          <td><%= status_text team.status %></td>
+          <td>
+          <a href="/manage/teams/<%= team.id %>/edit" class="btn btn_success">编辑</a>
+          <%= link_to '删除',
+                      {:controller => :teams, :action => 'destroy', :id => team.id},
+                      {:method => :delete, :confirm => '你确定要删除此球队吗?', :class => 'btn btn_error'}
+          %>
+          </td>
+        </tr>
+    <% end %>
+  </table>
+</div>
+<div><a href="/manage/teams/new" class="btn"><span class="add"></span>新增球队</a></div>
+<div class="p10 pages">
+  <%= will_paginate @teams %>
+</div>

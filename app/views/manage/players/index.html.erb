@@ -1,0 +1,58 @@
+<div class="search_type cc mb10">
+  <div class="h_a">球员列表</div>
+</div>
+
+<div class="table_list">
+  <table width="100%">
+    <colgroup>
+      <col/>
+      <col/>
+      <col/>
+      <col/>
+    </colgroup>
+    <thead>
+    <tr>
+      <td>ID</td>
+      <td>姓名</td>
+      <td>别名</td>
+      <td>身高</td>
+      <td>体重</td>
+      <td>号码</td>
+      <td>球龄</td>
+      <td>生日</td>
+      <td>球队</td>
+      <td>账号</td>
+      <td>状态</td>
+      <td>操作</td>
+    </tr>
+    </thead>
+    <% @players.each do |play| %>
+        <tr>
+          <td><%= play.id %></td>
+          <td><%= play.name %></td>
+          <td><%= play.alias %></td>
+          <td><%= play.height %></td>
+          <td><%= play.weight %></td>
+          <td><%= play.number %></td>
+          <td><%= play.ball_age %></td>
+          <td><%= play.birthday %></td>
+          <td><%= play.team.nil? ? '暂无' : play.team.name %></td>
+          <td><%= play.user_id %></td>
+          <td><%= status_text play.status %></td>
+          <td>
+          <a href="/manage/players/<%= play.id %>/accounts/new" class="btn btn_success mr10 various fancybox.iframe">创建账号</a>
+          <a href="/manage/players/<%= play.id %>/accounts" class="btn btn_success mr10 various fancybox.iframe ">账号列表</a>
+          <a href="/manage/players/<%= play.id %>/edit" class="btn btn_success">编辑</a>
+          <%= link_to '删除',
+                      {:controller => :players, :action => 'destroy', :id => play.id},
+                      {:method => :delete, :confirm => '你确定要删除此球员吗?', :class => 'btn btn_error'}
+          %>
+          </td>
+        </tr>
+    <% end %>
+  </table>
+</div>
+<div><a href="/manage/players/new" class="btn"><span class="add"></span>新增球员</a></div>
+<div class="p10 pages">
+  <%= will_paginate @players %>
+</div>

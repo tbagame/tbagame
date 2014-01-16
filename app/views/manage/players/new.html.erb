@@ -1,0 +1,4 @@
+<div class="h_a">新增球员</div>
+<%= form_tag '/manage/players', method: 'post' do %>
+    <%= render :partial => 'manage/players/form' %>
+<% end %>

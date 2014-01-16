@@ -1,0 +1,4 @@
+<div class="h_a">新增团队</div>
+<%= form_tag '/manage/teams', method: 'post' do %>
+    <%= render :partial => 'manage/teams/form' %>
+<% end %>

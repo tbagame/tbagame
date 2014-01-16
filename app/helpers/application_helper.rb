@@ -1,0 +1,19 @@
+#encoding:utf-8
+module ApplicationHelper
+
+  def status_list
+    [
+        %w(启用 active),
+        %w(停用 stop)
+    ]
+  end
+
+  def status_text(status)
+    case status
+      when Status::ACTIVE
+        '启用'
+      when Status::STOP
+        '停用'
+    end
+  end
+end

@@ -1,0 +1,4 @@
+<div class="h_a">新增用户球队关联</div>
+<%= form_tag "/manage/users/#{@user.id}/user_team_rels",id:'form' , method: 'post' do %>
+    <%= render :partial => 'manage/user_team_rels/form' %>
+<% end %>

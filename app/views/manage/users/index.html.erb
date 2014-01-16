@@ -1,0 +1,57 @@
+<div class="search_type cc mb10">
+  <div class="h_a">用户列表</div>
+</div>
+
+<div class="table_list">
+  <table width="100%">
+    <colgroup>
+      <col/>
+      <col/>
+      <col/>
+      <col/>
+    </colgroup>
+    <thead>
+    <tr>
+      <td>ID</td>
+      <td>昵称</td>
+      <td>姓名</td>
+      <td>地址</td>
+      <td>电话</td>
+      <td>QQ</td>
+      <td>Email</td>
+      <td>球队</td>
+      <td>状态</td>
+      <td>操作</td>
+    </tr>
+    </thead>
+    <% @users.each do |user| %>
+        <tr>
+          <td><%= user.id %></td>
+          <td><%= user.nickname %></td>
+          <td><%= user.name %></td>
+          <td><%= user.address %></td>
+          <td><%= user.tel %></td>
+          <td><%= user.qq %></td>
+          <td><%= user.email %></td>
+          <td><%= user.team.nil? ? '暂无' : user.team.name %></td>
+          <td><%= status_text user.status %></td>
+          <td>
+            <% unless user.team.nil? %>
+                <a href="/manage/users/<%= user.id %>/user_team_rels/new" class="btn btn_success mr10 various fancybox.iframe">球队角色</a>
+            <% end %>
+            <a href="/manage/users/<%= user.id %>/accounts/new" class="btn btn_success mr10 various fancybox.iframe">创建账号</a>
+            <a href="/manage/users/<%= user.id %>/accounts" class="btn btn_success mr10 various fancybox.iframe ">账号列表</a>
+            <a href="/manage/users/<%= user.id %>/edit" class="btn btn_success">编辑</a>
+            <%= link_to '删除',
+                        {:controller => :users, :action => 'destroy', :id => user.id},
+                        {:method => :delete, :confirm => '你确定要删除此用户吗?', :class => 'btn btn_error'}
+            %>
+          </td>
+        </tr>
+    <% end %>
+  </table>
+</div>
+<div><a href="/manage/users/new" class="btn"><span class="add"></span>新增用户</a></div>
+<div class="p10 pages">
+  <%= will_paginate @users %>
+</div>

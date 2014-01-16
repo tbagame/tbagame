@@ -1,0 +1,36 @@
+<div class="search_type cc mb10">
+  <div class="h_a"><%= @user.nickname %>账号列表</div>
+</div>
+
+<div class="table_list">
+  <table width="100%">
+    <colgroup>
+      <col/>
+      <col/>
+      <col/>
+      <col/>
+    </colgroup>
+    <thead>
+    <tr>
+      <td>ID</td>
+      <td>name</td>
+      <td>操作</td>
+    </tr>
+    </thead>
+    <% @accounts.each do |account| %>
+        <tr>
+          <td><%= account.id %></td>
+          <td><%= account.name %></td>
+          <td><a href="/manage/users/<%= @user.id %>/accounts/<%= account.id %>/edit" class="btn btn_success">编辑</a>
+          <%= link_to '删除',
+                      {:controller => :accounts, :action => 'destroy', :id => account.id},
+                      {:method => :delete, :confirm => '你确定要删除此账户吗?', :class => 'btn btn_error'}
+          %>
+          </td>
+        </tr>
+    <% end %>
+  </table>
+</div>
+<div><a href="/manage/users/<%= @user.id %>/accounts/new" class="btn"><span class="add"></span>新增用户</a></div>
+<div class="p10 pages">
+</div>

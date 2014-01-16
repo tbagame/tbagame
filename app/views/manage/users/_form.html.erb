@@ -1,0 +1,90 @@
+<div class="table_full">
+  <table width="100%">
+    <col class="th"/>
+    <col width="400"/>
+    <col/>
+    <tr>
+      <th>昵称</th>
+      <td>
+        <input type="text" name="nickname" class="input length_5 input_hd required" value="<%= @user.nickname %>"/>
+      </td>
+      <td>
+        <div class="fun_tips"></div>
+      </td>
+    </tr>
+    <tr>
+      <th>姓名</th>
+      <td>
+        <input type="text" name="name" class="input length_5 required" value="<%= @user.name %>"/>
+      </td>
+      <td>
+        <div class="fun_tips"></div>
+      </td>
+    </tr>
+    <tr>
+      <th>地址</th>
+      <td>
+        <input type="text" name="address" class="input length_5 " value="<%= @user.address %>"/>
+      </td>
+      <td>
+        <div class="fun_tips"></div>
+      </td>
+    </tr>
+    <tr>
+      <th>电话</th>
+      <td>
+        <input type="text" name="tel" class="input length_5 " value="<%= @user.tel %>"/>
+      </td>
+      <td>
+        <div class="fun_tips"></div>
+      </td>
+    </tr>
+    <tr>
+      <th>email</th>
+      <td>
+        <input type="text" name="email" class="input length_5 required email " value="<%= @user.email %>"/>
+      </td>
+      <td>
+        <div class="fun_tips"></div>
+      </td>
+    </tr>
+    <tr>
+      <th>QQ</th>
+      <td>
+        <input type="text" name="qq" class="input length_5 digits" value="<%= @user.qq %>"/>
+      </td>
+      <td>
+        <div class="fun_tips"></div>
+      </td>
+    </tr>
+    <tr>
+      <th>球队</th>
+      <td>
+        <select name="team_id" id="team_id">
+          <option value="">暂无</option>
+          <%= options_from_collection_for_select(@team,'id','name', @user[:team_id]) %>
+        </select>
+      </td>
+      <td>
+        <div class="fun_tips"></div>
+      </td>
+    </tr>
+    <tr>
+      <th>状态</th>
+      <td>
+        <select name="status">
+          <%= options_for_select(status_list, @user[:status]) %>
+        </select>
+      </td>
+      <td>
+        <div class="fun_tips"></div>
+      </td>
+    </tr>
+  </table>
+</div>
+<div class="p10"></div>
+<div class="cc">
+  <div class="btn_wrap_pd">
+    <button class="btn btn_submit" type="submit">保存</button>
+  </div>
+</div>

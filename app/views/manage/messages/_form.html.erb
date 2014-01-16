@@ -1,0 +1,43 @@
+<div class="table_full">
+  <table width="100%">
+    <col class="th"/>
+    <col width="400"/>
+    <col/>
+    <tr>
+      <th>标题</th>
+      <td>
+        <input type="text" name="title" class="input length_5 input_hd "/>
+      </td>
+      <td>
+        <div class="fun_tips"></div>
+      </td>
+    </tr>
+    <tr>
+      <th>内容</th>
+      <td>
+        <input type="text" name="content" class="input length_5 required" />
+        <input type="hidden" id="pid" name="pid" value="0">
+      </td>
+      <td>
+        <div class="fun_tips"></div>
+      </td>
+    </tr>
+    <tr>
+      <th>类型</th>
+      <td>
+        <select name="message_type" id="message_type">
+          <%= options_for_select(message_type_list) %>
+        </select>
+      </td>
+      <td>
+        <div class="fun_tips"></div>
+      </td>
+    </tr>
+  </table>
+</div>
+<div class="p10"></div>
+<div class="cc">
+  <div class="btn_wrap_pd">
+    <button class="btn btn_submit" type="submit">保存</button>
+  </div>
+</div>

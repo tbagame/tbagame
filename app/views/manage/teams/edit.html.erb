@@ -1,0 +1,4 @@
+<div class="h_a">用户编辑 [<%= @team.name %>]</div>
+<%= form_tag "/manage/teams/#{@team.id}", method: 'put' do %>
+<%= render :partial => 'manage/teams/form' %>
+<% end %>

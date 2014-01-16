@@ -1,0 +1,47 @@
+<div class="search_type cc mb10">
+  <div class="h_a">站内消息列表</div>
+</div>
+
+<div class="table_list">
+  <table width="100%">
+    <colgroup>
+      <col/>
+      <col/>
+      <col/>
+      <col/>
+    </colgroup>
+    <thead>
+    <tr>
+      <td>ID</td>
+      <td>发送人</td>
+      <td>接收人</td>
+      <td>标题</td>
+      <td>内容</td>
+      <td>类型</td>
+      <td>状态</td>
+      <td>操作</td>
+    </tr>
+    </thead>
+    <% @message_expands.each do |expand| %>
+        <tr>
+          <td><%= expand.id %></td>
+          <td><%= expand.from_user.name %></td>
+          <td><%= expand.to_user.name %></td>
+          <td><%= expand.message.title %></td>
+          <td><%= expand.message.content %></td>
+          <td><%= message_type_text expand.message.message_type %></td>
+          <td><%= message_status_text expand.status %></td>
+          <td>
+            <%= link_to '删除',
+                        {:controller => :messages, :action => 'destroy', :id => expand.id},
+                        {:method => :delete, :confirm => '你确定要删除此站内消息吗?', :class => 'btn btn_error'}
+            %>
+          </td>
+        </tr>
+    <% end %>
+  </table>
+</div>
+<div><a href="/manage/messages/new" class="btn"><span class="add"></span>新增站内消息</a></div>
+<div class="p10 pages">
+  <%= will_paginate @message_expands %>
+</div>

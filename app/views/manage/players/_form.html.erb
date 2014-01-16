@@ -1,0 +1,108 @@
+<div class="table_full">
+  <table width="100%">
+    <col class="th"/>
+    <col width="400"/>
+    <col/>
+    <tr>
+      <th>姓名</th>
+      <td>
+        <input type="text" name="name" class="input length_5 input_hd required" value="<%= @player.name %>"/>
+      </td>
+      <td>
+        <div class="fun_tips"></div>
+      </td>
+    </tr>
+    <tr>
+      <th>别名</th>
+      <td>
+        <input type="text" name="alias" class="input length_5 required" value="<%= @player.alias %>"/>
+      </td>
+      <td>
+        <div class="fun_tips"></div>
+      </td>
+    </tr>
+    <tr>
+      <th>身高</th>
+      <td>
+        <input type="text" name="height" class="input length_5 " value="<%= @player.height %>"/>
+      </td>
+      <td>
+        <div class="fun_tips"></div>
+      </td>
+    </tr>
+    <tr>
+      <th>体重</th>
+      <td>
+        <input type="text" name="weight" class="input length_5 " value="<%= @player.weight %>"/>
+      </td>
+      <td>
+        <div class="fun_tips"></div>
+      </td>
+    </tr>
+    <tr>
+      <th>号码</th>
+      <td>
+        <input type="text" name="number" class="input length_5 " value="<%= @player.number %>"/>
+      </td>
+      <td>
+        <div class="fun_tips"></div>
+      </td>
+    </tr>
+    <tr>
+      <th>球龄</th>
+      <td>
+        <input type="text" name="ball_age" class="input length_5 " value="<%= @player.ball_age %>"/>
+      </td>
+      <td>
+        <div class="fun_tips"></div>
+      </td>
+    </tr>
+    <tr>
+      <th>球队</th>
+      <td>
+        <select name="team_id" id="team_id">
+          <option value="">暂无</option>
+          <%= options_from_collection_for_select(@team,'id','name', @player[:team_id]) %>
+        </select>
+      </td>
+      <td>
+        <div class="fun_tips"></div>
+      </td>
+    </tr>
+    <tr>
+      <th>关联账号</th>
+      <td>
+        <input type="text" name="user_id" class="input length_5 " value="<%= @player.user_id %>"/>
+      </td>
+      <td>
+        <div class="fun_tips"></div>
+      </td>
+    </tr>
+    <tr>
+      <th>生日</th>
+      <td>
+        <input type="text" name="birthday" class="input length_3 datepicker " value="<%= @player.birthday %>"/>
+      </td>
+      <td>
+        <div class="fun_tips"></div>
+      </td>
+    </tr>
+    <tr>
+      <th>状态</th>
+      <td>
+        <select name="status">
+          <%= options_for_select(status_list, @player[:status]) %>
+        </select>
+      </td>
+      <td>
+        <div class="fun_tips"></div>
+      </td>
+    </tr>
+  </table>
+</div>
+<div class="p10"></div>
+<div class="cc">
+  <div class="btn_wrap_pd">
+    <button class="btn btn_submit" type="submit">保存</button>
+  </div>
+</div>
