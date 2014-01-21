@@ -73,6 +73,7 @@ Tbagame::Application.routes.draw do
     match 'admins/pwd', to: 'admins#pwd'
     match 'admins/reset_password', to: 'admins#reset_password'
     resources :admins
+    match 'users/users_json',to: 'users#users_json'
     resources :users do
       resources :accounts
       resources :user_team_rels
@@ -83,5 +84,7 @@ Tbagame::Application.routes.draw do
     end
     resources :players
     resources :messages
+    match 'invites/invite_status',to: 'invites#invite_status'
+    resources :invites
   end
 end

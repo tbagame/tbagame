@@ -76,5 +76,14 @@ module Manage
       end
       redirect_to action: :index
     end
+
+    def users_json
+      @users = User.where('nickname like ?', "%#{params[:nickname]}%") unless params[:nickname].blank?
+      respond_to do |format|
+        format.json do
+          @users = @users.select('id,nickname').order('LENGTH( nickname )').limit(30)
+        end
+      end
+    end
   end
 end
