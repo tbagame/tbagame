@@ -45,6 +45,7 @@
                 </li>
               </ul>
             </div>
+            <a href="/manage/invites/<%= invite.id %>/edit" class="btn btn_success">编辑</a>
             <%= link_to '删除',
                         {:controller => :invites, :action => 'destroy', :id => invite.id},
                         {:method => :delete, :confirm => '你确定要删除此邀请吗?', :class => 'btn btn_error'}
