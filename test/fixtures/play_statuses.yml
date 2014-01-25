@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  own_type: MyString
+  own_id: 1
+  week_day: MyString
+  start_tiem: MyString
+  end_time: MyString
+  status: MyString
+
+two:
+  own_type: MyString
+  own_id: 1
+  week_day: MyString
+  start_tiem: MyString
+  end_time: MyString
+  status: MyString

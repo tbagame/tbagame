@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  own_type: MyString
+  own_id: 1
+  vs_id: 1
+  stauts: MyString
+
+two:
+  own_type: MyString
+  own_id: 1
+  vs_id: 1
+  stauts: MyString

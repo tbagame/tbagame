@@ -1,0 +1,4 @@
+<div class="h_a">邀请编辑</div>
+<%= form_tag "/manage/invites/#{@invite.id}", id:'form' , method: 'put' do %>
+<%= render :partial => 'manage/invites/form' %>
+<% end %>

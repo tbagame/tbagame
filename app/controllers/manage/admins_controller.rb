@@ -64,7 +64,7 @@ module Manage
       else
         flash[:error] = Tips::DELETE_ERROR
       end
-      redirect_to :root
+      redirect_to action: :index
     end
 
     def pwd

@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  own_type: MyString
+  own_id: 1
+  vs_date: 2014-01-23 14:28:06
+  place: MyString
+  status: MyString
+
+two:
+  own_type: MyString
+  own_id: 1
+  vs_date: 2014-01-23 14:28:06
+  place: MyString
+  status: MyString

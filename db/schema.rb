@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140114031300) do
+ActiveRecord::Schema.define(:version => 20140123063050) do
 
   create_table "accounts", :force => true do |t|
     t.string   "name"
@@ -57,6 +57,17 @@ ActiveRecord::Schema.define(:version => 20140114031300) do
     t.string   "message_type"
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
+  end
+
+  create_table "play_statuses", :force => true do |t|
+    t.string   "own_type"
+    t.integer  "own_id"
+    t.string   "week_day"
+    t.string   "start_tiem"
+    t.string   "end_time"
+    t.string   "status"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "players", :force => true do |t|
@@ -110,6 +121,26 @@ ActiveRecord::Schema.define(:version => 20140114031300) do
     t.datetime "updated_at", :null => false
     t.string   "email"
     t.integer  "team_id"
+  end
+
+  create_table "vs", :force => true do |t|
+    t.string   "own_type"
+    t.integer  "own_id"
+    t.datetime "vs_date"
+    t.string   "place"
+    t.string   "content"
+    t.string   "status"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "vs_replies", :force => true do |t|
+    t.string   "own_type"
+    t.integer  "own_id"
+    t.integer  "vs_id"
+    t.string   "status"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
 end

@@ -1,0 +1,84 @@
+<div class="table_full">
+  <table width="100%">
+    <col class="th"/>
+    <col width="400"/>
+    <col/>
+    <tr>
+      <th>用户</th>
+      <td>
+        <input type="text" placeholder="请输入用户昵称" name="user_id" id="nickname" value="<%= @invite[:user_id] %>" class="input length_5 input_hd required"/>
+      </td>
+      <td>
+        <div class="fun_tips"></div>
+      </td>
+    </tr>
+    <tr>
+      <th>申请类型</th>
+      <td>
+        <select name="invite_type" id="invite_type">
+          <%= options_for_select(invite_type_list, @invite[:invite_type]) %>
+        </select>
+      </td>
+      <td>
+        <div class="fun_tips"></div>
+      </td>
+    </tr>
+    <tr>
+      <th>团队</th>
+      <td>
+        <select name="team_id" id="team_id">
+          <%= options_from_collection_for_select(@team,'id','name', @invite[:team_id]) %>
+        </select>
+      </td>
+      <td>
+        <div class="fun_tips"></div>
+      </td>
+    </tr>
+    <tr>
+      <th>状态</th>
+      <td>
+        <select name="status">
+          <%= options_for_select(invite_status_list, @invite[:status]) %>
+        </select>
+      </td>
+      <td>
+        <div class="fun_tips"></div>
+      </td>
+    </tr>
+  </table>
+</div>
+<div class="p10"></div>
+<div class="cc">
+  <div class="btn_wrap_pd">
+    <button class="btn btn_submit" type="submit">保存</button>
+  </div>
+</div>
+
+<script type="text/javascript">
+    $(function () {
+        $("#nickname").autocomplete({
+            source: function (request, response) {
+                $.ajax({
+                    url: "/manage/users/users_json.json",
+                    dataType: "json",
+                    data: {
+                        nickname: request.term
+                    },
+                    success: function (data) {
+                        response($.map(data, function (item) {
+                            return {
+                                label: item.user.nickname,
+                                value: item.user.id
+                            }
+                        }));
+                    }
+                });
+            },
+            minLength: 2,
+            delay: 500
+        });
+
+    })
+
+
+</script>
