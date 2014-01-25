@@ -1,5 +1,5 @@
 module Manage
-  class PlayersController < ApplicationController
+  class PlayersController < Manage::ApplicationController
 
     def index
       page_info = get_paging_order_info

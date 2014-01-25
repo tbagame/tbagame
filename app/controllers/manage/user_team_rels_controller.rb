@@ -1,5 +1,5 @@
 module Manage
-  class UserTeamRelsController < ApplicationController
+  class UserTeamRelsController < Manage::ApplicationController
 
     layout 'fancybox'
 

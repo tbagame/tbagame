@@ -1,5 +1,5 @@
 module Manage
-  class TeamsController < ApplicationController
+  class TeamsController < Manage::ApplicationController
 
     def index
       page_info = get_paging_order_info

@@ -1,5 +1,5 @@
 module Manage
-  class AccountsController < ApplicationController
+  class AccountsController < Manage::ApplicationController
 
     layout 'fancybox'
 
@@ -8,7 +8,6 @@ module Manage
     def user_info
       @user = User.find(params[:user_id])
     end
-
 
     def index
       page_info = get_paging_order_info
