@@ -48,7 +48,7 @@ Tbagame::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  # root :to => 'welcome#index'
+  root :to => 'index#index'
 
   # See how all your routes lay out with "rake routes"
 
@@ -57,7 +57,12 @@ Tbagame::Application.routes.draw do
   # match ':controller(/:action(/:id))(.:format)'
 
   match 'check_name', to: 'accounts#check_name'
-  namespace :user_center do
+  resources :challenges
+  namespace :center do
+    match 'index', to: 'home#index'
+    match 'show', to: 'home#show'
+    match 'user', to: 'home#user'
+    match 'spot', to: 'home#spot'
     match 'rel', to: 'user_team_rels#rel'
   end
 
@@ -73,7 +78,7 @@ Tbagame::Application.routes.draw do
     match 'admins/pwd', to: 'admins#pwd'
     match 'admins/reset_password', to: 'admins#reset_password'
     resources :admins
-    match 'users/users_json',to: 'users#users_json'
+    match 'users/users_json', to: 'users#users_json'
     resources :users do
       resources :accounts
       resources :user_team_rels
@@ -84,7 +89,12 @@ Tbagame::Application.routes.draw do
     end
     resources :players
     resources :messages
-    match 'invites/invite_status',to: 'invites#invite_status'
+    match 'invites/invite_status', to: 'invites#invite_status'
     resources :invites
+    resources :play_statuses
+    resource :challenges
   end
+
+  mount V1::API => '/'
+
 end

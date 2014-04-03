@@ -1,5 +1,5 @@
-module UserCenter
-  class UserTeamRelsController < UserCenter::BaseController
+module Center
+  class UserTeamRelsController < Center::ApplicationController
       def rel
         @user = User.find(params[:user_id])
         rels = UserTeamRel.where(:user_id => params[:user_id])

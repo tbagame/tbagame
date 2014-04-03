@@ -1,0 +1,29 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  address: MyString
+  status: MyString
+  business_time: MyString
+  gps_x: MyString
+  gps_y: MyString
+  geohash: MyString
+  average_price: 1
+  basketry: 1
+  transport_info: MyString
+  telephone: MyString
+  description: MyString
+
+two:
+  name: MyString
+  address: MyString
+  status: MyString
+  business_time: MyString
+  gps_x: MyString
+  gps_y: MyString
+  geohash: MyString
+  average_price: 1
+  basketry: 1
+  transport_info: MyString
+  telephone: MyString
+  description: MyString

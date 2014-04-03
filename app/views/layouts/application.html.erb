@@ -1,14 +1,38 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Exam</title>
-  <%= stylesheet_link_tag    'application', :media => "all" %>
+  <title>篮球部落-用户中心</title>
+  <%= stylesheet_link_tag    'application', :media => 'all' %>
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
+  <link rel="stylesheet" type="text/css" href="/css/front/main.css"/>
+  <link rel="stylesheet" type="text/css" href="/scripts/jquery_ui_datepicker/css/ui-lightness/jquery-ui-1.10.3.custom.min.css" media="screen"/>
+  <link rel="stylesheet" type="text/css" href="/scripts/jquery_dropdown/jquery.dropdown.css"/>
+  <link rel="stylesheet" type="text/css" href="/scripts/jquery_fancybox/jquery.fancybox.css"/>
+  <script type="text/javascript" src="/scripts/jquery_ui_datepicker/js/jquery-ui-1.10.3.min.js"></script>
+
 </head>
 <body>
 
 <%= yield %>
-
+<div class="clear"></div>
 </body>
+<script type="text/javascript" src=/scripts/jquery_dropdown/jquery.dropdown.js></script>
+<script type="text/javascript" src="/scripts/jquery_ui_datepicker/js/jquery-ui-timepicker-addon.js"></script>
+<script type="text/javascript" src=/scripts/jquery_fancybox/jquery.fancybox.js></script>
+<script type="text/javascript" src="/scripts/jquery.validate.js"></script>
+<script type="text/javascript" src="/scripts/jquery.validate.msg_cn.js"></script>
+<script type="text/javascript" src="/scripts/main.js"></script>
+
+<!--[if IE 6]>
+<script src="/scripts/DD_belatedPNG_0.0.8a-min.js"></script>
+<script>
+    /* EXAMPLE */
+    DD_belatedPNG.fix('.png-fix, .ch-primary-nav a:hover, .ch-primary-nav a.current span, .ch-primary-nav a:hover span');
+
+    /* string argument can be any CSS selector */
+    /* .png_bg example is unnecessary */
+    /* change it to what suits you! */
+</script>
+<![endif]-->
 </html>

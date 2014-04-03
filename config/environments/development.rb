@@ -34,4 +34,7 @@ Tbagame::Application.configure do
 
   # Expands the lines which load the assets
   config.assets.debug = true
+
+  #config.paths.add File.join('app','api'), glob: File.join('**','*.rb')
+  #config.autoload_paths += Dir[Rails.root.join('app','api','*')]
 end

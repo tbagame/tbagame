@@ -1,4 +1,4 @@
-<div class="h_a">邀请编辑</div>
-<%= form_tag "/manage/invites/#{@invite.id}", id:'form' , method: 'put' do %>
-<%= render :partial => 'manage/invites/form' %>
+<div class="h_a">用户状态编辑</div>
+<%= form_tag "/manage/play_statuses/#{@play_status.id}", id:'form' , method: 'put' do %>
+<%= render :partial => 'manage/play_statuses/form' %>
 <% end %>

@@ -1,5 +1,5 @@
 <div class="search_type cc mb10">
-  <div class="h_a">邀请列表</div>
+  <div class="h_a">用户/球队列表</div>
 </div>
 
 <div class="table_list">
@@ -13,49 +13,32 @@
     <thead>
     <tr>
       <td>ID</td>
-      <td>昵称</td>
-      <td>类型</td>
-      <td>球队</td>
+      <td>(用户/球队)名称</td>
+      <td>星期</td>
+      <td>开始时间－结束时间</td>
       <td>状态</td>
       <td>操作</td>
     </tr>
     </thead>
-    <% @invites.each do |invite| %>
+    <% @play_statuses.each do |status| %>
         <tr>
-          <td><%= invite.id %></td>
-          <td><%= invite.user.nickname %></td>
-          <td><%= invite_type_text invite.invite_type %></td>
-          <td><%= invite.team.name %></td>
-          <td><%= invite_status_text invite.status %></td>
+          <td><%= status.id %></td>
+          <td><%= status.own.name %></td>
+          <td><%= status.week_day %></td>
+          <td><%= status.start_time %>－<%= status.end_time %></td>
+          <td><%= play_status_text status.status %></td>
           <td>
-            <a href="javascript:;" class="btn btn_success" data-dropdown="#dropdown-<%= invite.id %>">审核</a>
-            <div class="dropdown dropdown-tip dropdown-anchor-right" id="dropdown-<%= invite.id %>">
-              <ul class="dropdown-menu">
-                <li>
-                  <a href="/manage/invites/invite_status?id=<%= invite.id %>&status=common">申请</a>
-                </li>
-                <li>
-                  <a href="/manage/invites/invite_status?id=<%= invite.id %>&status=pass">通过</a>
-                </li>
-                <li>
-                  <a href="/manage/invites/invite_status?id=<%= invite.id %>&status=refuse">拒绝</a>
-                </li>
-                <li>
-                  <a href="/manage/invites/invite_status?id=<%= invite.id %>&status=delete">删除</a>
-                </li>
-              </ul>
-            </div>
-            <a href="/manage/invites/<%= invite.id %>/edit" class="btn btn_success">编辑</a>
+            <a href="/manage/play_statuses/<%= status.id %>/edit" class="btn btn_success">编辑</a>
             <%= link_to '删除',
-                        {:controller => :invites, :action => 'destroy', :id => invite.id},
-                        {:method => :delete, :confirm => '你确定要删除此邀请吗?', :class => 'btn btn_error'}
+                        {:controller => :play_statuses, :action => 'destroy', :id => status.id},
+                        {:method => :delete, :confirm => '你确定要删除此状态吗?', :class => 'btn btn_error'}
             %>
           </td>
         </tr>
     <% end %>
   </table>
 </div>
-<div><a href="/manage/invites/new" class="btn"><span class="add"></span>新增邀请</a></div>
+<div><a href="/manage/play_statuses/new" class="btn"><span class="add"></span>新增用户/球队状态</a></div>
 <div class="p10 pages">
-  <%= will_paginate @invites %>
+  <%= will_paginate @play_statuses %>
 </div>

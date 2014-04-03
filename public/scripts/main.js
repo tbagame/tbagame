@@ -13,6 +13,10 @@ $(function(){
         changeYear: true
     });
 
+    $( ".timepicker" ).timepicker({
+        timeFormat: "HH:mm"
+    });
+
     $('.datetimepicker').datetimepicker({
         changeMonth: true,
         changeYear: true,

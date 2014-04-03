@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>篮球部落-用户中心</title>
+  <%= stylesheet_link_tag    'application', :media => 'all' %>
+  <%= javascript_include_tag 'application' %>
+  <%= csrf_meta_tags %>
+  <link rel="stylesheet" type="text/css" href="/css/front/main.css"/>
+</head>
+<body>
+<div class="ch-nav-wrap png-fix">
+  <div class="ch-nav ch-container">
+    <div class="ch-nav-logo left">
+      <a href="#"><img src="/css/images/front/logo.png" class="png-fix" /></a>
+    </div>
+    <ul class="ch-primary-nav left">
+      <li><a href="/center/index"><span>首页</span></a></li>
+      <li><a href="/center/show" class="current png-fix"><span>导航二</span></a></li>
+      <li><a href="/center/spot"><span>导航三</span></a></li>
+      <li><a href="/center/user"><span>导航四</span></a></li>
+      <!--<li><a href="./spots.php"><span>导航五</span></a></li>-->
+    </ul>
+
+    <div class="ch-nav-search right">
+      <input type="text" class="ch-nav-kw" />
+      <input type="image" src="/css/images/front/ico-search.png" class="ch-nav-submit png-fix" />
+    </div>
+    <ul class="ch-second-nav right">
+      <li><a href="#">当前用户:篮球队长</a></li>
+    </ul>
+
+  </div>
+</div>
+<%= yield %>
+<div class="clear"></div>
+</body>
+<!--[if IE 6]>
+<script src="/scripts/DD_belatedPNG_0.0.8a-min.js"></script>
+<script>
+    /* EXAMPLE */
+    DD_belatedPNG.fix('.png-fix, .ch-primary-nav a:hover, .ch-primary-nav a.current span, .ch-primary-nav a:hover span');
+
+    /* string argument can be any CSS selector */
+    /* .png_bg example is unnecessary */
+    /* change it to what suits you! */
+</script>
+<![endif]-->
+</html>

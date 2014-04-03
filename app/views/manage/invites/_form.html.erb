@@ -24,7 +24,7 @@
       </td>
     </tr>
     <tr>
-      <th>团队</th>
+      <th>球队</th>
       <td>
         <select name="team_id" id="team_id">
           <%= options_from_collection_for_select(@team,'id','name', @invite[:team_id]) %>
@@ -74,10 +74,9 @@
                     }
                 });
             },
-            minLength: 2,
+            minLength: 1,
             delay: 500
         });
-
     })
 
 

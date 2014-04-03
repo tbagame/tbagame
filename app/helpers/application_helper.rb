@@ -16,4 +16,12 @@ module ApplicationHelper
         '停用'
     end
   end
+
+  def datetime_input_value(datetime)
+    datetime.to_time.strftime('%Y-%m-%d %H:%M') unless datetime.nil?
+  end
+
+  def mobile_with_mask(mobile)
+    "#{mobile[0...3]}****#{mobile[-4..-1]}"  unless mobile.blank?
+  end
 end

@@ -1,0 +1,106 @@
+<div class="ch-content-wrap">
+  <div class="ch-content-top png-fix">
+    <div class="pad20 ch-dashboard-title">
+      <h2 class="left">Add a Spot</h2>
+      <a href="#" class="right">返回</a>
+    </div>
+  </div>
+  <div class="ch-content">
+    <div class="pad20">
+      <div class="clear">
+        <ul class="ch-search">
+          <li>
+            <h2>Find Your Spot</h2>
+            <p>Enter your spot’s details to show matching spots. Can’t find your spot in the search results? <a href="#">Add your spot now!</a></p>
+          </li>
+          <li>
+
+            <label>Name</label>
+            <input class="input-text" name="" type="text">
+            <p>e.g. Burgers, Starbucks, Café</p>
+          </li>
+          <li>
+            <label>Location</label>
+            <input class="input-text" name="" type="text">
+            <p>e.g. New York, San Francisco, Rome</p>
+          </li>
+          <li class="last">
+            <a href="#" class="ch-btn-a png-fix">SEARCH</a>
+          </li>
+        </ul>
+
+        <div class="clear padt10">
+          <div class="ch-block-wrap">
+            <div class="ch-block-title">
+              <h3>Search Results</h3>
+            </div>
+            <div class="ch-block-content pad10">
+              <p class="center"><img alt="" src="/css/images/front/ajax-loader.gif"></p>
+              <p class="center">Searching...</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="clear padt10">
+          <div class="ch-block-wrap">
+            <div class="ch-block-title">
+              <h3>Search Results</h3>
+            </div>
+            <div class="ch-block-content pad10">
+              <div class="ch-block-inner">
+                <table width="100%" border="0" class="ch-table ch-search-results">
+                  <tr>
+                    <td class="ch-photo"><img width="85" alt="" src="/css/images/front/map.jpg"></td>
+                    <td>
+                      <h4><a href="#">Starbucks Queen St</a></h4>
+                      <address>1378 Madison Avenue<br>
+                        New York, NY, United States</address>
+                    </td>
+                    <td><strong>Phone:</strong> (212) 534-7225</td>
+                    <td><a class="link-map-view" href="#">View Larger Map</a></td>
+                    <td><a class="ch-btn-a gray png-fix" href="#">ADD SPOT</a></td>
+                  </tr>
+                  <?php for($i=0;$i<3;$i++):?>
+                  <tr>
+                    <td class="ch-photo"><img width="85" alt="" src="/css/images/front/map.jpg"></td>
+                    <td>
+                      <h4><a href="#">Starbucks Queen St</a></h4>
+                      <address>1378 Madison Avenue<br>
+                        New York, NY, United States</address>
+                    </td>
+                    <td><strong>Phone:</strong> (212) 534-7225</td>
+                    <td><a class="link-map-view" href="#">View Larger Map</a></td>
+                    <td><a class="ch-btn-a png-fix" href="#">ADD SPOT</a></td>
+                  </tr>
+                  <?php endfor;?>
+                </table>
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="clear padt10">
+          <div class="ch-block-wrap">
+            <div class="ch-block-title">
+              <h3>Search Results Not Found</h3>
+            </div>
+            <div class="ch-block-content pad10">
+              <p class="center"><img alt="" src="/css/images/front/ico-no.png"></p>
+              <p class="center gray">
+                <strong>No Spots Found</strong><br>
+                Sorry, we couldn’t find any spots matching your search criteria.<br>
+                <a href="#">Try another search</a>, or <a href="#">add your spot manually</a>.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="clear"></div>
+      </div>
+    </div>
+
+  </div>
+  <div class="ch-content-bottom png-fix"></div>
+
+</div>

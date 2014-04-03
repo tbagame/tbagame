@@ -3,32 +3,67 @@
     <col class="th"/>
     <col width="400"/>
     <col/>
+
     <tr>
+      <th>状态类型</th>
+      <td>
+        <select name="type">
+          <option value="User" <%=  @play_status[:own_type].include?('User') ? 'selected':'' %>>用户</option>
+          <option value="Team" <%=  @play_status[:own_type].include?('Team') ? 'selected':'' %>>球队</option>
+        </select>
+      </td>
+      <td>
+        <div class="fun_tips"></div>
+      </td>
+    </tr>
+    <tr id="user" style="display: none">
       <th>用户</th>
       <td>
-        <input type="text" placeholder="请输入用户昵称" name="user_id" id="nickname" value="<%= @invite[:user_id] %>" class="input length_5 input_hd required"/>
+        <input type="text" placeholder="请输入用户昵称" name="user_id" id="nickname" value="<%= @play_status[:own_id] %>" class="input length_5 input_hd required"/>
       </td>
       <td>
         <div class="fun_tips"></div>
       </td>
     </tr>
-    <tr>
-      <th>申请类型</th>
-      <td>
-        <select name="invite_type" id="invite_type">
-          <%= options_for_select(invite_type_list, @invite[:invite_type]) %>
-        </select>
-      </td>
-      <td>
-        <div class="fun_tips"></div>
-      </td>
-    </tr>
-    <tr>
-      <th>团队</th>
+    <tr id="team" style="display: none">
+      <th>球队</th>
       <td>
         <select name="team_id" id="team_id">
-          <%= options_from_collection_for_select(@team,'id','name', @invite[:team_id]) %>
+          <%= options_from_collection_for_select(Team.all,'id','name', @play_status[:own_id]) %>
         </select>
+      </td>
+      <td>
+        <div class="fun_tips"></div>
+      </td>
+    </tr>
+    <tr>
+      <th>星期</th>
+      <td>
+        <input name="week_day[]" type="checkbox" value="1" <%= @play_status[:week_day].include?('1') ? 'checked':''  %>/>1
+        <input name="week_day[]" type="checkbox" value="2" <%= @play_status[:week_day].include?('2') ? 'checked':''  %>/>2
+        <input name="week_day[]" type="checkbox" value="3" <%= @play_status[:week_day].include?('3') ? 'checked':''  %>/>3
+        <input name="week_day[]" type="checkbox" value="4" <%= @play_status[:week_day].include?('4') ? 'checked':''  %>/>4
+        <input name="week_day[]" type="checkbox" value="5" <%= @play_status[:week_day].include?('5') ? 'checked':''  %>/>5
+        <input name="week_day[]" type="checkbox" value="6" <%= @play_status[:week_day].include?('6') ? 'checked':''  %>/>6
+        <input name="week_day[]" type="checkbox" value="7" <%= @play_status[:week_day].include?('7') ? 'checked':''  %>/>7
+      </td>
+      <td>
+        <div class="fun_tips"></div>
+      </td>
+    </tr>
+    <tr>
+      <th>开始时间</th>
+      <td>
+        <input name="start_time" class="input length_3 timepicker required" value="<%= @play_status[:start_time] %>">
+      </td>
+      <td>
+        <div class="fun_tips"></div>
+      </td>
+    </tr>
+    <tr>
+      <th>结束时间</th>
+      <td>
+        <input name="end_time" class="input length_3 timepicker " value="<%= @play_status[:end_time] %>">
       </td>
       <td>
         <div class="fun_tips"></div>
@@ -38,7 +73,7 @@
       <th>状态</th>
       <td>
         <select name="status">
-          <%= options_for_select(invite_status_list, @invite[:status]) %>
+          <%= options_for_select(play_status_list, @play_status[:status]) %>
         </select>
       </td>
       <td>
@@ -74,9 +109,11 @@
                     }
                 });
             },
-            minLength: 2,
+            minLength: 1,
             delay: 500
         });
+
+        $('#type').change()
 
     })
 

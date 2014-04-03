@@ -17,11 +17,10 @@ module Manage
 
     def create
       @play_status = PlayStatus.new
-      @play_status.content = params[:content]
       @play_status.week_day = params[:week_day]
       @play_status.start_time = params[:start_time]
       @play_status.end_time = params[:end_time]
-      @play_status.owner = User.find(params[:user_id])
+      @play_status.own = User.find(params[:user_id])
       @play_status.status = params[:status]
       begin
         if @play_status.save!
@@ -39,11 +38,10 @@ module Manage
 
     def update
       @play_status = PlayStatus.find(params[:id])
-      @play_status.content = params[:content]
       @play_status.week_day = params[:week_day]
       @play_status.start_time = params[:start_time]
       @play_status.end_time = params[:end_time]
-      @play_status.owner = User.find(params[:user_id])
+      @play_status.own = User.find(params[:user_id])
       @play_status.status = params[:status]
       begin
         if @play_status.save!
