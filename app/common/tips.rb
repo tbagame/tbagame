@@ -17,4 +17,7 @@ class Tips
   LOGIN_ERROR = '登录失败，用户名或者密码错误'
   PASSWORD_ERROR = '密码错误'
   ACCESS_ERROR = '您无权进行该操作'
+
+  REGISTER_ERROR = '注册失败，请核对注册信息'
+  SYSTEM_ERROR = '系统繁忙，请稍后再试'
 end

@@ -1,0 +1,23 @@
+<div class="ch-content-wrap">
+  <div class="ch-content-top png-fix">
+    <div class="pad20 ch-dashboard-title">
+      <h2 class="left">创建邀战</h2>
+      <a href="javascript:history.go(-1)" class="right">返回</a>
+    </div>
+  </div>
+  <div class="ch-content">
+    <div class="pad20">
+      <!--<div class="ch-form-readme left">-->
+      <!--<h2>Add Your Spot</h2>-->
+      <!--<p>Sorry we couldn’t find your spot! The good news is you can add a spot just as easily right here. Just enter as much or as little information about your spot as you like. The only required field is the spot name.</p>-->
+      <!--</div>-->
+      <%= form_tag '/center/challenges', method: 'post' do %>
+          <%= render :partial => 'center/challenges/form' %>
+      <% end %>
+      <div class="clear"></div>
+    </div>
+
+  </div>
+  <div class="ch-content-bottom png-fix"></div>
+
+</div>

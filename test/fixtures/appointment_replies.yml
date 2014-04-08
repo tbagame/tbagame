@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  appointment_id: 1
+  status: MyString
+  description: MyString
+  tel: MyString
+
+two:
+  appointment_id: 1
+  status: MyString
+  description: MyString
+  tel: MyString

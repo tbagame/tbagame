@@ -23,13 +23,13 @@
                 <!--<input class="input-text datetimepicker" name="" type="text">-->
 
                 <%= f.label(:start, '开始时间') %>
-                <input class="input-text datetimepicker" id="q_challenge_date_gteq" name="q[challenge_date_gteq]" size="30" type="text" value="<%= datetime_input_value params[:q][:challenge_date_gteq] %>">
+                <input class="input-text datetimepicker" id="q_challenge_date_gteq" name="q[challenge_date_gteq]" size="30" type="text" value="<%= datetime_input_value params[:q][:challenge_date_gteq] unless params[:q].blank? %>">
 
                 <p>e.g. 2012-01-07 15:30:00</p>
               </li>
               <li>
                 <%= f.label(:end, '结束时间') %>
-                <input class="input-text datetimepicker" id="q_challenge_date_lteq" name="q[challenge_date_lteq]" size="30" type="text" value="<%= datetime_input_value params[:q][:challenge_date_lteq] %>">
+                <input class="input-text datetimepicker" id="q_challenge_date_lteq" name="q[challenge_date_lteq]" size="30" type="text" value="<%= datetime_input_value params[:q][:challenge_date_lteq] unless params[:q].blank? %>">
 
                 <p>e.g. 2015-01-07 18:30:00</p>
               </li>
@@ -82,7 +82,7 @@
                   </div>
                   <div class="pad20">
                     <div class="p10 pages">
-                      <%= will_paginate @credit_accounts %>
+                      <%= will_paginate @challenges %>
                     </div>
                   </div>
                 </div>

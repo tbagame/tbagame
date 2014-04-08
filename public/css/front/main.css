@@ -233,6 +233,16 @@ h1, h2, h3, p {
     background: url('./i/bg_nav.png') repeat-x;
     margin-bottom: 40px;
 }
+
+.map-ch-nav-wrap {
+    height: 66px;
+    background: url('./i/bg_nav.png') repeat-x;
+}
+
+.map-ch-container {
+    padding-left: 10px;
+    padding-right: 10px;
+}
 .ch-nav {
     height: 55px;
 }
@@ -600,7 +610,8 @@ table {
     box-shadow: 0 1px 1px #CCCCCC, 0 0 1px rgba(255, 255, 255, 0.5) inset;
     font-size: 13px;
     height: 25px;
-    width: 240px;
+    width: 340px;
+    /*width: 240px;*/
 }
 .ch-button-grp li {
     float: left;

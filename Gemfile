@@ -51,4 +51,5 @@ gem 'bcrypt-ruby', '~> 3.0.0'
 group :development do
   gem 'thin'
   gem 'capistrano'
+  #gem 'quiet_assets', git: 'git@github.com:AgilionApps/quiet_assets.git', tag: 'v0.1.0'
 end

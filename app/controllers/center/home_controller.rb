@@ -1,6 +1,8 @@
 module Center
   class HomeController < Center::ApplicationController
 
+    before_filter :check_login
+
     def index
 
     end

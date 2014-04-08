@@ -1,0 +1,58 @@
+<div class="ch-logo png-fix">
+  <p> organize, remember and share your favorite spots</p>
+</div>
+
+<div class="ch-home-login-wrap">
+  <div class="ch-home-introduce left">
+    <h2>篮球部落当前为 <span class="red">内测版本</span></h2>
+
+    <h3>You’ll have to request an invite to join Spotpad.</h3>
+
+    <p>During the beta period, we are using Facebook Connect to validate users and handle invitations.</p>
+
+    <div class="ch-home-reg-button">
+      <a href="/login" class="png-fix">立即登录小正的SNS</a>
+    </div>
+    <a href="/index" class="ch-home-known-more">进入篮球部落</a>
+  </div>
+  <div class="ch-home-login right">
+    <h2>没有账号,立即注册！</h2>
+    <% unless  flash[:error].nil? %>
+        <p class="tips_block tips_error" style="color: red">
+          <%= flash[:error] %>
+        </p>
+    <% end %>
+    <form action="/reg" id="form" method="post">
+      <ul>
+        <li><input type="text" id="name" name="name" minlength = "4" class="ch-home-username ipt required "/></li>
+        <li><input type="password" id="password" name="password" minlength = "6" class="ch-home-pwd ipt required"/></li>
+        <li><input type="password" name="confirm_password" equalTo="#password" class="ch-home-pwd ipt required "/></li>
+        <li class="ch-home-login-pwd">
+          <button type="submit" class="right"><span>注 册</span></button>
+          <input id="agreement" name="agreement" class="required" type="checkbox">
+          <label for="agreement"><a>合同条款</a></label>
+        </li>
+      </ul>
+    </form>
+    <p><a href="#">Forgot Password?</a></p>
+  </div>
+</div>
+<script type="text/javascript">
+    $(function () {
+        $('#form').validate({
+            rules: {
+                name: {
+                    remote: {
+                        url: '/check_name.json',
+                        type: 'post'
+                    }
+                }
+            },
+            messages: {
+                name: {
+                    remote: '该用户名已存在'
+                }
+            }
+        })
+    })
+</script>

@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  user_id: 1
+  status: MyString
+  start_time: 2014-04-05 21:19:34
+  end_time: 2014-04-05 21:19:34
+  appointment_date: 2014-04-05 21:19:34
+  description: MyString
+  tel: MyString
+
+two:
+  user_id: 1
+  status: MyString
+  start_time: 2014-04-05 21:19:34
+  end_time: 2014-04-05 21:19:34
+  appointment_date: 2014-04-05 21:19:34
+  description: MyString
+  tel: MyString

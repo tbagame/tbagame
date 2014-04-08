@@ -1,0 +1,3 @@
+  class AccountActionException < Exception
+
+  end

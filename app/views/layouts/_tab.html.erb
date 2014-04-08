@@ -1,22 +1,43 @@
 <div class="ch-nav-wrap png-fix">
   <div class="ch-nav ch-container">
     <div class="ch-nav-logo left">
-      <a href="#"><img src="/css/images/front/logo.png" class="png-fix" /></a>
+      <a href="#"><img src="/css/images/front/logo.png" class="png-fix"/></a>
     </div>
     <ul class="ch-primary-nav left">
-      <li><a href="/" class="<% if index== 1 %>current png-fix <% end %> "><span>首页</span></a></li>
-      <li><a href="/challenges" class="<% if index== 2 %>current png-fix <% end %> "><span>邀战</span></a></li>
-      <li><a href="/center/spot" class="<% if index== 3 %>current png-fix <% end %> "><span>约球</span></a></li>
-      <li><a href="/center/user" class="<% if index== 4 %>current png-fix <% end %> "><span>球队</span></a></li>
-      <li><a href="./spots.php" class="<% if index== 5 %>current png-fix <% end %> "><span>球员</span></a></li>
+      <li><a href="/" class="
+        <% if index== 1 %>current png-fix
+        <% end %> "><span>首页</span></a></li>
+      <li><a href="/challenges" class="
+        <% if index== 2 %>current png-fix
+        <% end %> "><span>邀战</span></a></li>
+      <li><a href="/appointments" class="
+        <% if index== 3 %>current png-fix
+        <% end %> "><span>约球</span></a></li>
+      <li><a href="/teams" class="
+        <% if index== 4 %>current png-fix
+        <% end %> "><span>球队</span></a></li>
+      <li><a href="/maps" class="
+        <% if index== 5 %>current png-fix
+        <% end %> "><span>地图</span></a></li>
     </ul>
 
     <div class="ch-nav-search right">
-      <input type="text" class="ch-nav-kw" />
-      <input type="image" src="/css/images/front/ico-search.png" class="ch-nav-submit png-fix" />
+      <input type="text" class="ch-nav-kw"/>
+      <input type="image" src="/css/images/front/ico-search.png" class="ch-nav-submit png-fix"/>
     </div>
     <ul class="ch-second-nav right">
-      <li><a href="#">当前用户:篮球队长</a></li>
+      <li>
+        <% if @current_user.blank? %>
+            <a href="/login">登录</a>&nbsp;&nbsp;
+            <a href="/register">注册</a>
+        <% else %>
+            <a href="/center/index">
+              当前用户:<%= @current_user.nickname %></a>
+            &nbsp;&nbsp;
+            <a href="/logout">退出</a>
+        <% end %>
+
+      </li>
     </ul>
 
   </div>

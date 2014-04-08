@@ -58,12 +58,28 @@ Tbagame::Application.routes.draw do
 
   match 'check_name', to: 'accounts#check_name'
   resources :challenges
+  resources :appointments
+  resources :teams
+  resources :maps
+  match 'register',:to => 'register#new'
+  match 'reg',:to => 'register#create'
+  #resources :register
+  match 'login',:to => 'sessions#new'
+  match 'logout',:to => 'sessions#logout'
+  resources :sessions
+
+  #match 'signin',:to => 'sessions#create'
   namespace :center do
     match 'index', to: 'home#index'
     match 'show', to: 'home#show'
     match 'user', to: 'home#user'
     match 'spot', to: 'home#spot'
     match 'rel', to: 'user_team_rels#rel'
+
+    match 'challenges/join', to: 'challenges#join'
+    resources :challenges
+
+
   end
 
   namespace :manage do

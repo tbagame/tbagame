@@ -3,7 +3,7 @@
   <div class="ch-content-top png-fix">
     <div class="pad20 ch-dashboard-title">
       <h2 class="left">篮球部落</h2>
-      <span class="right">欢迎回来，篮球队长！</span>
+      <!--<span class="right">欢迎回来，篮球队长！</span>-->
     </div>
   </div>
   <div class="ch-content">
@@ -14,34 +14,20 @@
             <h3>最新邀战</h3>
           </div>
           <div class="ch-block-content pad10">
-            <!--<p class="center">-->
-            <!--<img src="/css/images/front/ico-spotpad.png" />-->
-            <!--</p>-->
-            <!--<p class="ch-block-p">You haven’t added any spots yet.</p>-->
-            <!--<p class="center">-->
-            <!--<a href="#" class="ch-btn-a png-fix">立即添加</a>-->
-            <!--</p>-->
-            <!--<br />-->
             <div class="ch-block-inner">
-              <!--<div class="clear">-->
-              <!--<a href="#" class="ch-a-add left">添加</a>-->
-              <!--<a href="#" class="ch-a-edit right">编辑</a>-->
-              <!--</div>-->
-              <!--<div class="clear">-->
-              <!--<br />-->
               <table width="100%" border="0" class="ch-spots ch-table">
-                <% 4.times do %>
+                <% @challenges.each do |challenge| %>
                     <tr>
-                      <td><img src="/css/images/front/map.jpg"/></td>
+                      <td><img src="<%= map_image challenge.place.pic %>"/></td>
                       <td>
-                        <h3><a href="#">Starbucks</a></h3>
-                        <h4><a href="#">Category name 1</a> &gt; <a href="#">Category name 2</a></h4>
+                        <h2><a href="#"><%= challenge.team.name  %></a></h2>
+                        <h4><a href="#"><%= datetime_input_value challenge.challenge_date %></a> &gt; <a href="#"><%= challenge.place.name%></a></h4>
                       </td>
                       <td>
-                        <div class="ch-tags">Tags: <a href="#">Coffee</a></div>
+                        <div class="link-map-view">地图: <a href="#">查看</a></div>
                       </td>
                       <td>
-                        <a href="#" class="ch-btn-a png-fix">查看</a>
+                        <a href="#" class="ch-btn-a png-fix">应邀</a>
                       </td>
                     </tr>
                 <% end %>
@@ -56,29 +42,13 @@
           <h3>最新球队</h3>
         </div>
         <div class="ch-block-content pad10">
-
-          <!--<p class="center">-->
-          <!--<img src="/css/images/front/ico-friends-large.png" />-->
-          <!--</p>-->
-          <!--<p class="ch-block-p">You haven’t connected with any friends yet.</p>-->
-          <!--<p class="center">-->
-          <!--<a href="#" class="ch-btn-a png-fix">CONNECT WITH FRIENDS</a>-->
-          <!--</p>-->
-          <!--<br />-->
-
-          <!--<div class="ch-block-inner">-->
-          <!--<div class="clear">-->
-          <!--<a href="#" class="ch-a-add left">添加</a>-->
-          <!--<a href="#" class="ch-a-edit right">编辑</a>-->
-          <!--</div>-->
-          <!--<br />-->
           <ul class="clear ch-dashboard-event">
-            <% 6.times do %>
+            <% @teams.each do |team| %>
                 <li>
-                  <span class="right">03-11</span>
+                  <span class="right"><%= datetime_value_with_ymd team.created_at%></span>
                   <span class="left ch-avatar"><img src="/css/images/front/avatar.jpg"/></span>
 
-                  <h3><a href="#">知猪队</a>
+                  <h3><a href="#"><%= team.name %></a>
                     <br>
                     <a href="#">Starbucks Queen St</a>
                   </h3>
@@ -86,90 +56,37 @@
             <% end %>
           </ul>
         </div>
-        <!--<div class="pad20"/>-->
-        <!--</div>-->
-        <!--</div>-->
       </div>
 
       <div class="clear padt20">
-        <div class="ch-block-wrap ch-block-wrap-s left mr20">
+        <div class="ch-block-wrap ch-block-wrap-m left">
           <div class="ch-block-title">
-            <h3>List</h3>
+            <h3>最新约球</h3>
           </div>
           <div class="ch-block-content pad10">
-            <p class="center">
-              <img src="/css/images/front/ico-list.png"/>
-            </p>
-
-            <p class="ch-block-p">You haven’t created any lists yet.</p>
-
-            <p class="center">
-              <a href="#" class="ch-btn-a png-fix">+ ADD List</a>
-            </p>
-            <br/>
-
             <div class="ch-block-inner">
-              <div class="clear">
-                <a href="#" class="ch-a-add left">添加</a>
-                <a href="#" class="ch-a-edit right">编辑</a>
-              </div>
-              <div class="clear">
-                <ul class="ch-dashboard-list">
-                  <li><a href="#">Brunch Tops</a></li>
-                  <li><a href="#">Brunch Tops</a></li>
-                  <li><a href="#">Brunch Tops</a></li>
-                  <li><a href="#">Brunch Tops</a></li>
-                </ul>
-
-              </div>
-            </div>
-
-          </div>
-        </div>
-
-        <div class="ch-block-wrap ch-block-wrap-s left mr20">
-          <div class="ch-block-title">
-            <h3>Journal Entries</h3>
-          </div>
-          <div class="ch-block-content pad10">
-            <p class="center">
-              <img src="/css/images/front/ico-pencil.png"/>
-            </p>
-
-            <p class="ch-block-p">You haven’t made any journal entries yet.</p>
-
-            <p class="center">
-              <a href="#" class="ch-btn-a png-fix">+ ADD JOURNAL ENTRY</a>
-            </p>
-            <br/>
-
-            <div class="ch-block-inner">
-              <div class="clear">
-                <a href="#" class="ch-a-add left">添加</a>
-                <a href="#" class="ch-a-edit right">编辑</a>
-              </div>
-              <div class="clear">
-                <ul class="ch-dashboard-tick">
-                  <li>
-                    <h4>You were at <a href="#">Starbucks Queen St</a></h4>
-                    <time>1:30pm, November 1st 2011</time>
-                  </li>
-                  <li>
-                    <h4>You were at <a href="#">Starbucks Queen St</a></h4>
-                    <time>1:30pm, November 1st 2011</time>
-                  </li>
-                  <li>
-                    <h4>You were at <a href="#">Starbucks Queen St</a></h4>
-                    <time>1:30pm, November 1st 2011</time>
-                  </li>
-                </ul>
-
-              </div>
+              <table width="100%" border="0" class="ch-spots ch-table">
+                <% @appointments.each do |appointment| %>
+                    <tr>
+                      <td><img src=<%= map_image %>/></td>
+                      <td>
+                        <h2><a href="#"><%= challenge.team.name  %></a></h2>
+                        <h4><a href="#"><%= datetime_input_value challenge.challenge_date %></a> &gt; <a href="#"><%= challenge.place.name%></a></h4>
+                      </td>
+                      <td>
+                        <div class="link-map-view">地图: <a href="#">查看</a></div>
+                      </td>
+                      <td>
+                        <a href="#" class="ch-btn-a png-fix">应邀</a>
+                      </td>
+                    </tr>
+                <% end %>
+              </table>
             </div>
           </div>
         </div>
 
-        <div class="ch-block-wrap ch-block-wrap-s left">
+        <div class="ch-block-wrap ch-block-wrap-s right">
           <div class="ch-block-title">
             <h3>手机客户端</h3>
           </div>
@@ -177,11 +94,13 @@
             <p><img src="/css/images/front/pic-mobile.png" class="ch-app-download png-fix"/></p>
 
             <div class="pad10">
-              <p class="ch-block-p">With our iPhone app, keeping track of what you have done and where you have been has
-                never been easier!</p>
-
+              <!--<p class="ch-block-p">With our iPhone app, keeping track of what you have done and where you have been has-->
+                <!--never been easier!</p>-->
               <p class="center">
-                <a href="#" class="ch-btn-a png-fix">立即免费下载</a>
+                <a href="#" class="ch-btn-a png-fix">&nbsp;&nbsp;立即下载IOS&nbsp;&nbsp;</a>
+              </p>
+              <p class="center">
+                <a href="#" class="ch-btn-a png-fix">立即下载Android</a>
               </p>
             </div>
           </div>

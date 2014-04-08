@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  challenge_id: 1
+  status: MyString
+  description: MyString
+  tel: MyString
+
+two:
+  challenge_id: 1
+  status: MyString
+  description: MyString
+  tel: MyString

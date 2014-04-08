@@ -1,0 +1,90 @@
+<div class="ch-form-content left">
+  <h2 class="ch-form-title">输入邀战详情</h2>
+
+  <div class="ch-field">
+    <label>预约开始</label>
+
+    <div class="ch-field-content">
+      <p><input type="text" value="" name="" class="input-text wider"> <span class="required">Required</span></p>
+
+      <p><em>e.g. 2012-01-07 15:30:00</em></p>
+    </div>
+  </div>
+  <div class="ch-field">
+    <label>预约结束</label>
+
+    <div class="ch-field-content">
+      <p><input type="text" value="" name="" class="input-text wider"> <span class="required">Required</span></p>
+
+      <p><em>e.g. 2012-01-07 15:30:00</em></p>
+    </div>
+  </div>
+  <div class="ch-field">
+    <label>邀战时间</label>
+
+    <div class="ch-field-content">
+      <p><input type="text" value="" name="" class="input-text wider"> <span class="required">Required</span></p>
+
+      <p><em>e.g. 2012-01-07 15:30:00</em></p>
+    </div>
+  </div><div class="ch-field">
+  <label>联系电话</label>
+
+  <div class="ch-field-content">
+    <p><input type="text" value="" name="" class="input-text wider"> <span class="required">Required</span></p>
+
+    <p><em>e.g. 15828144455</em></p>
+  </div>
+</div><div class="ch-field">
+  <label>场地</label>
+
+  <div class="ch-field-content">
+    <p><input type="text" value="" name="" class="input-text wider"> <span class="required">Required</span></p>
+
+    <p><em>e.g. Starbucks, Jan’s Diner</em></p>
+  </div>
+</div>
+  <div class="ch-field">
+    <label>描述</label>
+
+    <div class="ch-field-content">
+      <p>
+        <textarea class="input-text wider"></textarea>
+      </p>
+
+      <p><em>e.g. Starbucks, Jan’s Diner</em></p>
+    </div>
+  </div>
+  <div class="ch-field-sub">
+    <button class="ch-btn-a png-fix">保存</button>
+  </div>
+</div>
+
+
+<script type="text/javascript">
+    $(function () {
+        $("#nickname").autocomplete({
+            source: function (request, response) {
+                $.ajax({
+                    url: "/manage/users/users_json.json",
+                    dataType: "json",
+                    data: {
+                        nickname: request.term
+                    },
+                    success: function (data) {
+                        response($.map(data, function (item) {
+                            return {
+                                label: item.user.nickname,
+                                value: item.user.id
+                            }
+                        }));
+                    }
+                });
+            },
+            minLength: 1,
+            delay: 500
+        });
+    })
+
+
+</script>

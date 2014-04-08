@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140321092447) do
+ActiveRecord::Schema.define(:version => 20140406125220) do
 
   create_table "accounts", :force => true do |t|
     t.string   "name"
@@ -32,16 +32,48 @@ ActiveRecord::Schema.define(:version => 20140321092447) do
     t.datetime "updated_at",      :null => false
   end
 
+  create_table "appointment_replies", :force => true do |t|
+    t.integer  "appointment_id"
+    t.string   "status"
+    t.string   "description"
+    t.string   "tel"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+  end
+
+  create_table "appointments", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "status"
+    t.datetime "start_time"
+    t.datetime "end_time"
+    t.datetime "appointment_date"
+    t.string   "description"
+    t.string   "tel"
+    t.integer  "place_id"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
+  end
+
+  create_table "challenge_replies", :force => true do |t|
+    t.integer  "challenge_id"
+    t.string   "status"
+    t.string   "description"
+    t.string   "tel"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
+
   create_table "challenges", :force => true do |t|
     t.integer  "team_id"
     t.string   "status"
     t.datetime "start_time"
     t.datetime "end_time"
-    t.string   "challenge_date"
+    t.datetime "challenge_date"
     t.string   "description"
     t.integer  "place_id"
-    t.datetime "created_at",     :null => false
-    t.datetime "updated_at",     :null => false
+    t.datetime "created_at",                   :null => false
+    t.datetime "updated_at",                   :null => false
+    t.string   "tel",            :limit => 40
   end
 
   create_table "invites", :force => true do |t|
@@ -90,6 +122,7 @@ ActiveRecord::Schema.define(:version => 20140321092447) do
     t.string   "area_code",                                     :default => "chengdu", :null => false
     t.datetime "created_at",                                                           :null => false
     t.datetime "updated_at",                                                           :null => false
+    t.string   "pic"
   end
 
   create_table "play_statuses", :force => true do |t|
@@ -133,6 +166,8 @@ ActiveRecord::Schema.define(:version => 20140321092447) do
     t.string   "status"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+    t.string   "tel"
+    t.string   "pic"
   end
 
   create_table "user_team_rels", :force => true do |t|

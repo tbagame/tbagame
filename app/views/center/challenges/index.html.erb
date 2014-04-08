@@ -1,0 +1,171 @@
+<div class="ch-content-wrap">
+  <div class="ch-content-top png-fix">
+    <div class="pad10">
+      <span class="ch-photo left"><img width="42" height="42" alt="" src="/css/images/front/avatar.jpg"></span>
+
+      <div class="ch-page-title left">
+        <h2><%= @current_user.name %></h2>
+        <ul class="ch-button-grp">
+          <li><a href="/center/challenges" class="first active">我的邀战</a></li>
+          <li><a href="/center/appointments">我的约球</a></li>
+          <li><a href="/center/team">我的球队</a></li>
+          <li id="msg"><a href="#">站内信</a></li>
+          <!--<li><a href="#">分享</a></li>-->
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="ch-content">
+    <div class="pad20">
+      <div class="ch-content-title">
+        <ul class="ch-primary-nav left">
+          <li><a href="/center/challenges" class="current png-fix"><span>我发起的邀战</span></a></li>
+          <li><a href="/center/show"><span>我参与的邀战</span></a></li>
+        </ul>
+        <!--<h2 class="left">我的邀战</h2>-->
+
+        <!--<form action="" class="right ch-title-search">-->
+        <!--<input name="" type="text" class="text"/>-->
+        <!--<input name="" src="/css/images/front/ico-search.png" alt="Search" type="image" class="img"/>-->
+        <!--</form>-->
+        <div class="clear"></div>
+      </div>
+
+      <div class="clear ch-filters">
+        <!--<fieldset class="first">-->
+        <!--<legend>搜索</legend>-->
+        <!--<select name="type">-->
+        <!--<option value=""></option>-->
+        <!--<option></option>-->
+        <!--</select>-->
+        <!--<select name="">-->
+        <!--<option>All Categories</option>-->
+        <!--</select>-->
+        <!--</fieldset>-->
+
+        <!--<fieldset>-->
+        <!--<legend>Views</legend>-->
+        <!--<div class="ch-filters-icon">-->
+        <!--<a href="#" class="ch-icon ch-icon-location">Spots near you</a>-->
+        <!--<a href="#" class="ch-icon ch-icon-map">View on Map</a></div>-->
+        <!--</fieldset>-->
+
+        <!--<fieldset>-->
+        <!--<legend>Actions</legend>-->
+        <!--<div class="ch-filters-icon">-->
+        <!--<a href="#" class="ch-icon ch-icon-add">Add to Spotpad</a>-->
+        <!--<a href="#" class="ch-icon ch-icon-share">Share</a>-->
+        <!--<a href="#" class="ch-icon ch-icon-del">Delete</a>-->
+        <!--</div>-->
+        <!--</fieldset>-->
+
+        <%= search_form_for @search, :url => '/center/challenges',
+                            :html => {:method => :get} do |f| %>
+
+            <ul class="ch-search">
+              <!--<li>-->
+              <!--<h2>查找</h2>-->
+              <!--<p>Enter your spot’s details to show matching spots. Can’t find your spot in the search results? <a href="#">Add your spot now!</a></p>-->
+              <!--</li>-->
+              <li>
+
+                <!--<label>开始时间</label>-->
+                <!--<input class="input-text datetimepicker" name="" type="text">-->
+
+                <%= f.label(:start, '开始时间') %>
+                <input class="input-text datetimepicker" id="q_challenge_date_gteq" name="q[challenge_date_gteq]" size="30" type="text" value="<%= datetime_input_value params[:q][:challenge_date_gteq] unless params[:q].blank? %>">
+
+                <p>e.g. 2012-01-07 15:30:00</p>
+              </li>
+              <li>
+                <%= f.label(:end, '结束时间') %>
+                <input class="input-text datetimepicker" id="q_challenge_date_lteq" name="q[challenge_date_lteq]" size="30" type="text" value="<%= datetime_input_value params[:q][:challenge_date_lteq] unless params[:q].blank? %>">
+
+                <p>e.g. 2015-01-07 18:30:00</p>
+              </li>
+              <li>
+                <%= f.label(:key, '关键字') %>
+                <%= f.text_field :team_name_or_place_name_or_place_address_cont, class: 'input-text' %>
+                <p>e.g. 篮球,金牛</p>
+              </li>
+              <li class="last">
+                <button type="submit" class="ch-btn-a png-fix">搜索</button>
+              </li>
+            </ul>
+        <% end %>
+        <div class="clear"></div>
+      </div>
+
+      <div class="pad20"></div>
+      <% if @challenges.count > 0 %>
+          <div class="ch-block-inner">
+            <div class="clear">
+              <a href="#" class="ch-a-add left">创建</a>
+              <!--<a href="#" class="ch-a-edit right">编辑</a>-->
+            </div>
+            <div class="clear">
+              <br/>
+              <table width="100%" border="0" class="ch-spots ch-table">
+                <% @challenges.each do |challenge| %>
+                    <tr>
+                      <td class="ch-photo"><img width="85" alt="" src="/css/images/front/map.jpg"></td>
+                      <td>
+                        <h4><a href="#"><%= challenge.team.name %>邀战</a></h4>
+                        <time><%= datetime_input_value challenge.challenge_date %></time>
+                        <address>
+                          <%= challenge.place.address %>
+                        </address>
+                      </td>
+                      <td><strong>联系电话:</strong> <%= mobile_with_mask challenge.tel %></td>
+                      <td><a class="link-map-view" href="#">查看地图</a></td>
+                      <td><a class="ch-btn-a png-fix" href="#">编辑</a></td>
+                      <td><a class="ch-btn-a png-fix" href="#">删除</a></td>
+                    </tr>
+                <% end %>
+              </table>
+            </div>
+            <div class="pad20">
+              <div class="p10 pages">
+                <%= will_paginate @challenges %>
+              </div>
+            </div>
+          </div>
+      <% else %>
+          <div class="clear padt10">
+            <div class="ch-block-wrap">
+              <div class="ch-block-title">
+                <h3>暂无邀战</h3>
+              </div>
+              <div class="ch-block-content pad10">
+                <p class="center"><img alt="" src="/css/images/front/ico-no.png"></p>
+
+                <p class="center gray">
+                  <strong>亲，未找到合适邀战；请调整搜索条件后重新查询或创建。</strong><br>
+                  <!--您搜索的邀战暂不.<br>-->
+                  <!--<a href="#">Try another search</a>, or <a href="#">add your spot manually</a>.-->
+                </p>
+              </div>
+            </div>
+          </div>
+      <% end %>
+    </div>
+
+  </div>
+  <div class="ch-content-bottom png-fix"></div>
+
+</div>
+<script>
+    $(function () {
+        $('#msg').grumble(
+                {
+                    text: '3',
+                    angle: 150,
+                    distance: 3,
+                    showAfter: 3000,
+                    hideAfter: false,
+                    hasHideButton: true,
+                    buttonHideText: 'Pop!'
+                }
+        );
+    })
+</script>

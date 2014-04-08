@@ -6,6 +6,10 @@
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
   <link rel="stylesheet" type="text/css" href="/css/front/main.css"/>
+  <link rel="stylesheet" type="text/css" href="/scripts/jquery_ui_datepicker/css/ui-lightness/jquery-ui-1.10.3.custom.min.css" media="screen"/>
+  <link rel="stylesheet" type="text/css" href="/scripts/jquery_dropdown/jquery.dropdown.css"/>
+  <link rel="stylesheet" type="text/css" href="/scripts/jquery_fancybox/jquery.fancybox.css"/>
+  <script type="text/javascript" src="/scripts/jquery_ui_datepicker/js/jquery-ui-1.10.3.min.js"></script>
 </head>
 <body>
 <div class="ch-nav-wrap png-fix">
@@ -34,6 +38,12 @@
 <%= yield %>
 <div class="clear"></div>
 </body>
+<script type="text/javascript" src=/scripts/jquery_dropdown/jquery.dropdown.js></script>
+<script type="text/javascript" src="/scripts/jquery_ui_datepicker/js/jquery-ui-timepicker-addon.js"></script>
+<script type="text/javascript" src=/scripts/jquery_fancybox/jquery.fancybox.js></script>
+<script type="text/javascript" src="/scripts/jquery.validate.js"></script>
+<script type="text/javascript" src="/scripts/jquery.validate.msg_cn.js"></script>
+<script type="text/javascript" src="/scripts/main.js"></script>
 <!--[if IE 6]>
 <script src="/scripts/DD_belatedPNG_0.0.8a-min.js"></script>
 <script>
@@ -44,5 +54,6 @@
     /* .png_bg example is unnecessary */
     /* change it to what suits you! */
 </script>
+
 <![endif]-->
 </html>

@@ -3,4 +3,6 @@ class Challenge < ActiveRecord::Base
 
   belongs_to :place
   belongs_to :team
+
+  has_many :challenge_replies
 end

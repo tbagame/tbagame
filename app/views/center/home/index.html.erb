@@ -6,10 +6,11 @@
       <div class="ch-page-title left">
         <h2>篮球队长</h2>
         <ul class="ch-button-grp">
-          <li><a href="#" class="first active">动态</a></li>
-          <li><a href="#">朋友</a></li>
-          <li><a href="#">所有人</a></li>
-          <li><a href="#">分享</a></li>
+          <li><a href="#" class="first active">邀战</a></li>
+          <li><a href="#">约球</a></li>
+          <li><a href="#">球队</a></li>
+          <li id="msg"><a href="#" >站内信</a></li>
+          <!--<li><a href="#">分享</a></li>-->
         </ul>
       </div>
     </div>
@@ -89,3 +90,18 @@
   <div class="ch-content-bottom png-fix"></div>
 
 </div>
+<script>
+    $(function () {
+        $('#msg').grumble(
+                {
+                    text: '3',
+                    angle: 150,
+                    distance: 3,
+                    showAfter: 3000,
+                    hideAfter: false,
+                    hasHideButton: true,
+                    buttonHideText: 'Pop!'
+                }
+        );
+    })
+</script>
