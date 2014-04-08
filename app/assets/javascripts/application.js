@@ -13,5 +13,5 @@
 //= require jquery-1.9.1.min.js
 //= require jquery_ujs
 //= require_tree .
-//= require grumble.js/jquery.grumble.min.js
+//= require grumble/jquery.grumble.min.js
 
