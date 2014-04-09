@@ -111,6 +111,6 @@ Tbagame::Application.routes.draw do
     resource :challenges
   end
 
-  mount V1::API => '/'
+  #mount V1::API => '/'
 
 end
