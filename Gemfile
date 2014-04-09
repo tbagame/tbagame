@@ -4,9 +4,9 @@ gem 'rails', '3.2.13'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
-gem 'grape', git: 'https://github.com/intridea/grape.git'
+#gem 'grape', git: 'https://github.com/intridea/grape.git'
 #gem 'thin'
-gem 'grape-rabl'
+#gem 'grape-rabl'
 
 gem 'oj'
 
