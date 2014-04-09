@@ -10,9 +10,9 @@ module ApplicationHelper
 
   def status_text(status)
     case status
-      when Status::ACTIVE
+      when StatusCode::ACTIVE
         '启用'
-      when Status::STOP
+      when StatusCode::STOP
         '停用'
     end
   end

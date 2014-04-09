@@ -5,7 +5,7 @@
     <label>预约开始</label>
 
     <div class="ch-field-content">
-      <p><input type="text" value="" name="" class="input-text wider"> <span class="required">Required</span></p>
+      <p><input type="text" value="<%= datetime_input_value @challenge.start_time %>" name="start_time" required="required" class="input-text wider datetimepicker"> <span class="fun_tips"></span></p>
 
       <p><em>e.g. 2012-01-07 15:30:00</em></p>
     </div>
@@ -14,7 +14,7 @@
     <label>预约结束</label>
 
     <div class="ch-field-content">
-      <p><input type="text" value="" name="" class="input-text wider"> <span class="required">Required</span></p>
+      <p><input type="text" value="<%= datetime_input_value @challenge.end_time %>"  name="end_time" required="required" class="input-text wider datetimepicker" > <span class="fun_tips"></span></p>
 
       <p><em>e.g. 2012-01-07 15:30:00</em></p>
     </div>
@@ -23,7 +23,7 @@
     <label>邀战时间</label>
 
     <div class="ch-field-content">
-      <p><input type="text" value="" name="" class="input-text wider"> <span class="required">Required</span></p>
+      <p><input type="text" value="<%= datetime_input_value @challenge.challenge_date %>" name="challenge_date" required="required" class="input-text wider datetimepicker"> <span class="fun_tips"></span></p>
 
       <p><em>e.g. 2012-01-07 15:30:00</em></p>
     </div>
@@ -31,7 +31,7 @@
   <label>联系电话</label>
 
   <div class="ch-field-content">
-    <p><input type="text" value="" name="" class="input-text wider"> <span class="required">Required</span></p>
+    <p><input type="text" value="<%= @challenge.tel %>" name="tel" class="input-text wider"> <span class="fun_tips"></span></p>
 
     <p><em>e.g. 15828144455</em></p>
   </div>
@@ -39,9 +39,9 @@
   <label>场地</label>
 
   <div class="ch-field-content">
-    <p><input type="text" value="" name="" class="input-text wider"> <span class="required">Required</span></p>
-
-    <p><em>e.g. Starbucks, Jan’s Diner</em></p>
+    <p><input type="text" value="<%= @challenge.place.name unless @challenge.place.blank?  %>" name="place_name" class="input-text wider" required="required"> <span class="fun_tips"></span></p>
+       <input type="hidden" name="place_id" value="<%= @challenge.place.id unless @challenge.place.blank? %>">
+    <p><em>e.g. 川师篮球场</em></p>
   </div>
 </div>
   <div class="ch-field">
@@ -49,10 +49,10 @@
 
     <div class="ch-field-content">
       <p>
-        <textarea class="input-text wider"></textarea>
+        <textarea class="input-text wider"><%= @challenge.description %></textarea>
       </p>
 
-      <p><em>e.g. Starbucks, Jan’s Diner</em></p>
+      <p><em>e.g. 无兄弟，不篮球，再战篮坛</em></p>
     </div>
   </div>
   <div class="ch-field-sub">

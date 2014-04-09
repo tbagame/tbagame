@@ -2,7 +2,7 @@
 class User < ActiveRecord::Base
   attr_accessible :address, :name, :nickname, :qq, :status, :tel, :token, :team
   include UserToken
-  include Status
+  include StatusCode
 
 
   has_many :accounts, as: :owner, dependent: :destroy

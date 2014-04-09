@@ -13,7 +13,7 @@ module Center
     end
 
     def new
-
+      @challenge = Challenge.new
     end
 
     def create
