@@ -6,8 +6,8 @@ gem 'rails', '3.2.13'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 #gem 'grape', git: 'https://github.com/intridea/grape.git'
 #gem 'thin'
-gem 'grape'
-gem 'grape-rabl'
+#gem 'grape'
+#gem 'grape-rabl'
 
 gem 'oj'
 

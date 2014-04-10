@@ -68,7 +68,7 @@ Tbagame::Application.routes.draw do
   match 'logout',:to => 'sessions#logout'
   resources :sessions
 
-  #match 'signin',:to => 'sessions#create'
+  match 'places/places_json', to: 'places#places_json'
   namespace :center do
     match 'index', to: 'home#index'
     match 'show', to: 'home#show'

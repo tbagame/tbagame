@@ -100,7 +100,7 @@
       <% if @challenges.count > 0 %>
           <div class="ch-block-inner">
             <div class="clear">
-              <a href="#" class="ch-a-add left">创建</a>
+              <a href="/challenges/new" class="ch-a-add left">创建</a>
               <!--<a href="#" class="ch-a-edit right">编辑</a>-->
             </div>
             <div class="clear">
@@ -118,8 +118,14 @@
                       </td>
                       <td><strong>联系电话:</strong> <%= mobile_with_mask challenge.tel %></td>
                       <td><a class="link-map-view" href="#">查看地图</a></td>
-                      <td><a class="ch-btn-a png-fix" href="#">编辑</a></td>
-                      <td><a class="ch-btn-a png-fix" href="#">删除</a></td>
+                      <td><a class="ch-btn-a png-fix" href="/challenges/<%= challenge.place.id %>/edit">编辑</a></td>
+                      <td>
+                        <%= link_to '删除',
+                                    {:controller => :challenges, :action => 'destroy', :id => challenge.id},
+                                    {:method => :delete,  :class => 'ch-btn-a png-fix'}
+                        %>
+                        <!--<a class="ch-btn-a png-fix" href="#">删除</a>-->
+                      </td>
                     </tr>
                 <% end %>
               </table>

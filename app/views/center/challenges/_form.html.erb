@@ -39,8 +39,8 @@
   <label>场地</label>
 
   <div class="ch-field-content">
-    <p><input type="text" value="<%= @challenge.place.name unless @challenge.place.blank?  %>" name="place_name" class="input-text wider" required="required"> <span class="fun_tips"></span></p>
-       <input type="hidden" name="place_id" value="<%= @challenge.place.id unless @challenge.place.blank? %>">
+    <p><input type="text" id="place_name" value="<%= @challenge.place.name unless @challenge.place.blank?  %>" name="place_name" class="input-text wider" required="required"> <span class="fun_tips"></span></p>
+       <input type="hidden" name="place_id" id="place_id" value="<%= @challenge.place.id unless @challenge.place.blank? %>">
     <p><em>e.g. 川师篮球场</em></p>
   </div>
 </div>
@@ -63,26 +63,31 @@
 
 <script type="text/javascript">
     $(function () {
-        $("#nickname").autocomplete({
+        $("#place_name").autocomplete({
             source: function (request, response) {
                 $.ajax({
-                    url: "/manage/users/users_json.json",
+                    url: "/places/places_json.json",
                     dataType: "json",
                     data: {
-                        nickname: request.term
+                        name: request.term
                     },
                     success: function (data) {
                         response($.map(data, function (item) {
                             return {
-                                label: item.user.nickname,
-                                value: item.user.id
+                                label: item.place.name,
+                                value: item.place.name,
+                                id: item.place.id
+
                             }
                         }));
                     }
                 });
             },
             minLength: 1,
-            delay: 500
+            delay: 500,
+            select: function( event, ui ) {
+                $("#place_id").val(ui.item.id);
+            }
         });
     })
 
