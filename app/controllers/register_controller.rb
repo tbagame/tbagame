@@ -8,9 +8,9 @@ class RegisterController < ApplicationController
     destroy_session
     flash_return('error', Tips::REGISTER_ERROR, '/register') if params[:agreement].blank?
     begin
-      User.create_user(params[:name], params[:password], params[:confirm_password])
+      user = User.create_user(params[:name], params[:password], params[:confirm_password])
       create_session(user, params[:name])
-      redirect_to session[:pre_url].blank? ?  '/center/index' : session[:pre_url]
+      redirect_to session[:pre_url].blank? ? '/center/index' : session[:pre_url]
     rescue AccountActionException
       flash_return('error', Tips::REGISTER_ERROR, '/register')
     rescue StandardError

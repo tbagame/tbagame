@@ -48,11 +48,10 @@ class User < ActiveRecord::Base
           account.save!
 
         rescue ActiveRecord::StaleObjectError => e
-          logger.error("can not create user due to #{e.message}")
           raise AccountActionException, '注册失败，请重试'
         end
       end
-      return user
+      user
     end
 
   end
