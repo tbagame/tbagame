@@ -1,26 +1,26 @@
 source 'http://ruby.taobao.org/'
 
-gem 'rails', '3.2.13'
+gem 'rails', '4.0.2'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 #gem 'grape', git: 'https://github.com/intridea/grape.git'
 #gem 'thin'
-#gem 'grape'
-#gem 'grape-rabl'
+gem 'grape'
+gem 'grape-rabl'
 
 gem 'oj'
 
 #gem 'rabl'
 
-gem 'mysql2'
+gem 'mysql2' ,'0.3.11'
 gem 'rabl'
 
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
-  gem 'sass-rails',   '~> 3.2.3'
-  gem 'coffee-rails', '~> 3.2.1'
+  gem 'sass-rails',   '~> 4.0.0'
+  gem 'coffee-rails', '~> 4.0.0'
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   # gem 'therubyracer', :platforms => :ruby
