@@ -56,47 +56,47 @@ Tbagame::Application.routes.draw do
   # Note: This route will make all actions in every controller accessible via GET requests.
   # match ':controller(/:action(/:id))(.:format)'
 
-  match 'index' => 'index#index'
+  get 'index' => 'index#index'
 
-  match 'check_name', to: 'accounts#check_name'
+  get 'check_name', :to =>  'accounts#check_name'
   resources :challenges
   resources :appointments
   resources :teams
   resources :maps
-  match 'register',:to => 'register#new'
-  match 'reg',:to => 'register#create'
+  get 'register',:to => 'register#new'
+  post 'reg',:to => 'register#create'
   #resources :register
-  match 'login',:to => 'sessions#new'
-  match 'logout',:to => 'sessions#logout'
+  get 'login',:to => 'sessions#new'
+  get 'logout',:to => 'sessions#logout'
   resources :sessions
 
-  match 'places/places_json', to: 'places#places_json'
+  get 'places/places_json', :to=> 'places#places_json'
   namespace :center do
-    match 'index', to: 'home#index'
-    match 'show', to: 'home#show'
-    match 'user', to: 'home#user'
-    match 'spot', to: 'home#spot'
-    match 'rel', to: 'user_team_rels#rel'
+    get 'index', :to =>  'home#index'
+    get 'show', :to =>  'home#show'
+    get 'user', :to =>  'home#user'
+    get 'spot', :to =>  'home#spot'
+    get 'rel', :to =>  'user_team_rels#rel'
 
-    match 'challenges/join', to: 'challenges#join'
+    post 'challenges/join', :to => 'challenges#join'
     resources :challenges
 
 
   end
 
   namespace :manage do
-    match 'logout', to: 'sessions#logout', :via => [:get]
-    match 'login', to: 'sessions#new', :via => [:get]
+    get 'logout', :to =>  'sessions#logout'
+    get 'login', :to =>  'sessions#new'
 
 
     resource :sessions
 
     root :to => 'sessions#new'
 
-    match 'admins/pwd', to: 'admins#pwd'
-    match 'admins/reset_password', to: 'admins#reset_password'
+    get 'admins/pwd', :to =>  'admins#pwd'
+    put 'admins/reset_password', :to =>  'admins#reset_password'
     resources :admins
-    match 'users/users_json', to: 'users#users_json'
+    get 'users/users_json', :to =>  'users#users_json'
     resources :users do
       resources :accounts
       resources :user_team_rels
@@ -107,7 +107,7 @@ Tbagame::Application.routes.draw do
     end
     resources :players
     resources :messages
-    match 'invites/invite_status', to: 'invites#invite_status'
+    put 'invites/invite_status', :to =>  'invites#invite_status'
     resources :invites
     resources :play_statuses
     resource :challenges
