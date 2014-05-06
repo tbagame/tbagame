@@ -2,7 +2,7 @@
         "appname": "tguan app",
         "apkname": "tguan.apk",
         "version": "1.2",
-        "verCode": 3,
+        "verCode": 2,
         "forceUpdate":1,
         "url": "/tguan.apk",
         "full_url": "http://www.tbagame.com/tguan.apk"
